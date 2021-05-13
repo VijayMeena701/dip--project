@@ -10,7 +10,9 @@ const videoConstraints = {
 };
 
 const WebcamCapture = (props) => {
+    setCap("");
     const [src, setSrc] = useState(null);
+    const [cap, setCap] = useState(null);
     const webcamRef = React.useRef('');
     const [dataBlob, setDataBlob] = useState(null);
 
@@ -68,7 +70,7 @@ const WebcamCapture = (props) => {
                 </form>
             </div>
             <div style={{ width: '100%', display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center' }}>
-                {src === null ?
+                {cap === null ?
                     <div style={{ display: 'flex', flexDirection: 'column', gap: '2em' }}>
                         <Webcam
                             audio={false}
