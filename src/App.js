@@ -1,25 +1,22 @@
-import logo from './logo.svg';
-import './App.css';
-
+import React from 'react';
+import { Route, Switch, BrowserRouter as Router } from 'react-router-dom';
+import Navbar from './components/Navbar';
+import Home from './pages/Home';
+import FaceDetect from './pages/FaceDetect';
+import FaceMatch from './components/FaceMatch';
+import FaceLandMark from './components/FaceLankMark';
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+	return (
+		<Router>
+			<Navbar />
+			<Switch>
+				<Route exact path="/" component={Home} />
+				<Route exact path="/face-detection" component={FaceDetect} />
+				<Route exact path="/face-matching" component={FaceMatch} />
+				<Route exact path="/face-landmark" component={FaceLandMark} />
+			</Switch>
+		</Router>
+	);
 }
 
 export default App;
